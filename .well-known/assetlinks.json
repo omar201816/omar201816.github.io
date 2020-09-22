@@ -1,9 +1,0 @@
-[{
-  "relation": ["delegate_permission/common.handle_all_urls"],
-  "target": {
-    "namespace": "android_app",
-    "package_name": "com.delivery.nova",
-    "sha256_cert_fingerprints":
-    ["3E:E1:7C:38:AD:78:0C:16:B5:D9:77:52:A6:7C:43:75:FA:B0:09:F9:51:E3:8D:61:1E:87:2A:2B:92:3C:66:DD"]
-  }
-}]

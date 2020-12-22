@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <h1>Instagram Feed Search App in Javascript</h1>
+  <form id="myForm" autocomplete="off">
+    <input type="text" id="username" placeholder="Enter Username" required>
+    <input type="submit" value="Search">
+  </form>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="instagramfeed.js"></script>
+<script>
+  $('#myForm').submit(function (e){
+    e.preventDefault()
+    var username = $("#username").val()
+$.instagramFeer({
+'username':username,
+'display_biography':true,
+'display_igtv':true,
+'display_profile':true,
+'container':"#instagram-feed-demo"
+});
+  });
+</script>
+</html>

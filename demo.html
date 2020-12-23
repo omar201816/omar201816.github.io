@@ -17,7 +17,6 @@
 <script>
   $('#myForm').submit(function (e){
     e.preventDefault()
-    alert("CLICKEADO")
     var username = $("#username").val()
 $.instagramFeed({
 'username':username,
@@ -25,7 +24,8 @@ $.instagramFeed({
 'display_igtv':false,
 'display_profile':false,
 'container':"#instagram-feed-demo",
-'items':2
+'items': 8,
+'items_per_row': 4
 });
   });
 </script>

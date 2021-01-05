@@ -8,9 +8,9 @@
 
 <body>
 
-  <p>Click the button to get your coordinates.</p>
+  <p>Haga clic en el botón para obtener sus coordenadas.</p>
 
-  <button onclick="getLocation()">Try It</button>
+  <button onclick="getLocation()">BOTON</button>
 
   <p id="demo"></p>
   <script type="text/javascript">
@@ -21,29 +21,18 @@
         name: 'geolocation'
       }).then(function (result) {
         if (result.state == 'granted') {
-          report(result.state);
-          //geoBtn.style.display = 'none';
+          report(result.state);          
         } else if (result.state == 'prompt') {
-          report(result.state);
-          //geoBtn.style.display = 'none';
+          report(result.state);          
           navigator.geolocation.getCurrentPosition(showPosition);
         } else if (result.state == 'denied') {
-          report(result.state);
-          //geoBtn.style.display = 'inline';
+          report('Debe habilitar el uso de la ubicación para poder continuar');          
         }
         result.onchange = function () {
-          report(result.state);
+          //report(result.state);
         }
       });
-      //alert("LINEA 20");
-     /* if (navigator.geolocation) {
-        //        alert("LINEA 22");
-        navigator.geolocation.getCurrentPosition(showPosition);
-      } else {
-        x.innerHTML = "Geolocation is not supported by this browser.";
-      }*/
     }
-
     function report(valor){
       alert("ESTADO: "+valor);
     }

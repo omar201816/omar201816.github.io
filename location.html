@@ -21,7 +21,8 @@
         name: 'geolocation'
       }).then(function (result) {
         if (result.state == 'granted') {
-          report(result.state);          
+          //report(result.state);          
+          navigator.geolocation.getCurrentPosition(showPosition);
         } else if (result.state == 'prompt') {
           //report(result.state);          
           navigator.geolocation.getCurrentPosition(showPosition);

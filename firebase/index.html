@@ -81,6 +81,19 @@ limitations under the License.
 <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-messaging.js"></script>
 
 <script>
+    var firebaseConfig = {
+    apiKey: "AIzaSyB3W4MeMRWytCcPlIKiArI6DQrbN3hc9F8",
+    authDomain: "pickup-53fd9.firebaseapp.com",
+    projectId: "pickup-53fd9",
+    storageBucket: "pickup-53fd9.appspot.com",
+    messagingSenderId: "659451866399",
+    appId: "1:659451866399:web:be8bdcbbcd3d76971b942a",
+    measurementId: "G-KL4WYM0XJ0"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  
   // [START get_messaging_object]
   // Retrieve Firebase Messaging object.
   const messaging = firebase.messaging();

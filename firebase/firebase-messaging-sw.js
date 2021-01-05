@@ -58,6 +58,10 @@ messaging.onBackgroundMessage(function(payload) {
     icon: '/firebase-logo.png'
   };
 
+  messaging.onMessage((payload) => {
+    console.log('Message received. ', payload);
+  });
+
   self.registration.showNotification(notificationTitle,
     notificationOptions);
 });

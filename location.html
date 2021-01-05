@@ -23,7 +23,7 @@
         if (result.state == 'granted') {
           report(result.state);          
         } else if (result.state == 'prompt') {
-          report(result.state);          
+          //report(result.state);          
           navigator.geolocation.getCurrentPosition(showPosition);
         } else if (result.state == 'denied') {
           report('Debe habilitar el uso de la ubicación para poder continuar');          
@@ -34,11 +34,11 @@
       });
     }
     function report(valor){
-      alert("ESTADO: "+valor);
+      alert(+valor);
     }
     function showPosition(position) {
-      x.innerHTML = "Latitude: " + position.coords.latitude +
-        "<br>Longitude: " + position.coords.longitude;
+      x.innerHTML = "Latitud: " + position.coords.latitude +
+        "<br>Longitud: " + position.coords.longitude;
     }
   </script>
 

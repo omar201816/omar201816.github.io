@@ -17,6 +17,7 @@
     var x = document.getElementById("demo");
 
     function getLocation() {
+      report(navigator.state);
       navigator.permissions.query({
         name: 'geolocation'
       }).then(function (result) {

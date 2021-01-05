@@ -17,9 +17,12 @@
     var x = document.getElementById("demo");
 
     function getLocation() {
+      navigator.permissions.query({ name: 'geolocation' }).then(function (result) {
+        alert("ESTATUS---->: " + result.state);
+      });
       //alert("LINEA 20");
       if (navigator.geolocation) {
-//        alert("LINEA 22");
+        //        alert("LINEA 22");
         navigator.geolocation.getCurrentPosition(showPosition);
       } else {
         x.innerHTML = "Geolocation is not supported by this browser.";

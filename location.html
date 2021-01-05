@@ -17,18 +17,36 @@
     var x = document.getElementById("demo");
 
     function getLocation() {
-      navigator.permissions.query({ name: 'geolocation' }).then(function (result) {
-        alert("ESTATUS---->: " + result.state);
+      navigator.permissions.query({
+        name: 'geolocation'
+      }).then(function (result) {
+        if (result.state == 'granted') {
+          report(result.state);
+          //geoBtn.style.display = 'none';
+        } else if (result.state == 'prompt') {
+          report(result.state);
+          //geoBtn.style.display = 'none';
+          navigator.geolocation.getCurrentPosition(showPosition);
+        } else if (result.state == 'denied') {
+          report(result.state);
+          //geoBtn.style.display = 'inline';
+        }
+        result.onchange = function () {
+          report(result.state);
+        }
       });
       //alert("LINEA 20");
-      if (navigator.geolocation) {
+     /* if (navigator.geolocation) {
         //        alert("LINEA 22");
         navigator.geolocation.getCurrentPosition(showPosition);
       } else {
         x.innerHTML = "Geolocation is not supported by this browser.";
-      }
+      }*/
     }
 
+    function report(valor){
+      alert("ESTADO: "+valor);
+    }
     function showPosition(position) {
       x.innerHTML = "Latitude: " + position.coords.latitude +
         "<br>Longitude: " + position.coords.longitude;

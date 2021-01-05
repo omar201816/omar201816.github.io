@@ -1,12 +1,21 @@
 // Import and configure the Firebase SDK
 // These scripts are made available when the app is served or deployed on Firebase Hosting
 // If you do not serve/host your project using Firebase Hosting see https://firebase.google.com/docs/web/setup
-importScripts('/__/firebase/8.2.1/firebase-app.js');
-importScripts('/__/firebase/8.2.1/firebase-messaging.js');
-importScripts('/__/firebase/init.js');
-
+importScripts('https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js');
+ importScripts('https://www.gstatic.com/firebasejs/8.2.1/firebase-messaging.js');
+ 
+ firebase.initializeApp({
+  apiKey: "AIzaSyB3W4MeMRWytCcPlIKiArI6DQrbN3hc9F8",
+  authDomain: "pickup-53fd9.firebaseapp.com",
+  projectId: "pickup-53fd9",
+  storageBucket: "pickup-53fd9.appspot.com",
+  messagingSenderId: "659451866399",
+  appId: "1:659451866399:web:be8bdcbbcd3d76971b942a",
+  measurementId: "G-KL4WYM0XJ0"
+});
+// Retrieve an instance of Firebase Messaging so that it can handle background
+// messages.
 const messaging = firebase.messaging();
-
 /**
  * Here is is the code snippet to initialize Firebase Messaging in the Service
  * Worker when your app is not hosted on Firebase Hosting.

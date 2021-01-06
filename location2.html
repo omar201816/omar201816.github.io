@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+	<!--<p>Haga clic en el botón para obtener sus coordenadas.</p>
+
+	<button onclick="getLocation()">BOTON</button>-->
+
+	<p id="demo"></p>
+	<script type="text/javascript">
+		var x = document.getElementById("demo");
+
+		var options = {
+			enableHighAccuracy: true,
+			timeout: 5000,
+			maximumAge: 0
+		};
+
+		function success(pos) {
+			var crd = pos.coords;
+			var str = "";		
+			str += 'La posición actual es:';
+			str += "</br>";
+			str += 'Latitud: ' + crd.latitude;
+			str += "</br>";
+			str += 'Longitud: ' + crd.longitude;
+			str += "</br>";
+			str += 'Más o menos a ' + crd.accuracy + ' metros.';
+			str += "</br>";
+			var posicion = crd.latitude + ", " + crd.longitude;
+			x.innerHTML = str+posicion;
+		}
+
+		function error(err) {
+			switch (err.code) {
+				case 1:
+					x.innerHTML = "Active la ubicación para poder continuar";
+					break;
+			}
+			console.warn('ERROR: ' +err.message);
+		}
+
+		navigator.geolocation.getCurrentPosition(success, error, options);
+			/*function getLocation() {
+			navigator.geolocation.getCurrentPosition(
+				function (position) {
+					console.log("entro");
+				},
+				function (positionError) {
+					switch (positionError.code) {
+
+						case 1:
+							console.log('Permission denied')
+							break
+
+						case 2:
+							console.log('Permission allowed, location disabled')
+							break
+
+						case 3:
+							console.log('Permission allowed, timeout reached')
+							break
+					}
+				},
+				{ timeout: 5000 }
+			);
+		}*/
+
+
+				//var x = document.getElementById("demo");
+
+				//function getLocation() {
+				//  navigator.permissions.query({
+				//    name: 'geolocation'
+				//  }).then(function (result) {
+				//    if (result.state == 'granted') {
+				//      navigator.geolocation.getCurrentPosition(showPosition);
+				//    } else if (result.state == 'prompt') {
+				//      navigator.geolocation.getCurrentPosition(showPosition);
+				//    } else if (result.state == 'denied') {
+				//      report('Debe habilitar el uso de la ubicación para poder continuar');
+				//    }
+				//    result.onchange = function () {
+				//      report(result.state);
+				//    }
+				//  });
+				//}
+				//function report(valor){
+				//  alert(valor);
+				//}
+				//function showPosition(position) {
+				//  x.innerHTML = "Latitud: " + position.coords.latitude +
+				//    "<br>Longitud: " + position.coords.longitude;
+				//}
+	</script>
+
+</body>
+
+</html>

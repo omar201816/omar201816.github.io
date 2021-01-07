@@ -38,23 +38,27 @@
 		}
 
 		function error(err) {
+			var msg ="";
 			switch (err.code) {
 				case 1:
-					x.innerHTML = "Active la ubicación para poder continuar";
-					break;
+							msg="Se requiere que acepte el permiso de localización para acceder a la ubicación.";
+							break;
+
+						case 2:
+							msg="Se requiere que active la ubicación para acceder a la ubicación.";
+							break;
+
+						case 3:
+							msg="Se produjo un error al acceder a la ubicación.";
+							break;				
 			}
+			x.innerHTML
 			console.warn('ERROR: ' +err.message);
 		}
 
 		navigator.geolocation.getCurrentPosition(success, error, options);
-			/*function getLocation() {
-			navigator.geolocation.getCurrentPosition(
-				function (position) {
-					console.log("entro");
-				},
-				function (positionError) {
+			/*
 					switch (positionError.code) {
-
 						case 1:
 							console.log('Permission denied')
 							break
@@ -67,37 +71,7 @@
 							console.log('Permission allowed, timeout reached')
 							break
 					}
-				},
-				{ timeout: 5000 }
-			);
-		}*/
-
-
-				//var x = document.getElementById("demo");
-
-				//function getLocation() {
-				//  navigator.permissions.query({
-				//    name: 'geolocation'
-				//  }).then(function (result) {
-				//    if (result.state == 'granted') {
-				//      navigator.geolocation.getCurrentPosition(showPosition);
-				//    } else if (result.state == 'prompt') {
-				//      navigator.geolocation.getCurrentPosition(showPosition);
-				//    } else if (result.state == 'denied') {
-				//      report('Debe habilitar el uso de la ubicación para poder continuar');
-				//    }
-				//    result.onchange = function () {
-				//      report(result.state);
-				//    }
-				//  });
-				//}
-				//function report(valor){
-				//  alert(valor);
-				//}
-				//function showPosition(position) {
-				//  x.innerHTML = "Latitud: " + position.coords.latitude +
-				//    "<br>Longitud: " + position.coords.longitude;
-				//}
+		*/
 	</script>
 
 </body>

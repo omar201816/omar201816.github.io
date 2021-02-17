@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+    <style>
+        .appLogos {
+            width: 15%;
+        }
+
+        .header {
+            display: block;
+            background: #FF8800;
+            padding: 0;
+            padding-left: 1%;
+            padding-right: 1%;
+            padding-bottom: 1%;
+            padding-top: 1%;
+            text-align: center;
+            margin: 0;
+            color: white !important;
+            width: 100%;
+            font-size: 18px;
+        }
+
+        body {
+            display: block;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            overflow-x: hidden;
+            overflow-y: hidden;
+            font-size: 1.2em;
+            color: black !important;
+            text-align: center;
+        }
+
+        .PieDePagina {
+            background-color: #2E3192;
+            /* For browsers that do not support gradients */
+            background: linear-gradient(#3698D4, #2E3192);
+            /* Standard syntax (must be last) */
+            padding-bottom: 1%;
+            padding-top: 1%;
+            text-align: justify;
+            font-size: 15px;
+            line-height: 20pt;
+            font-family: "Arial", Helvetica, sans-serif;
+            color: white;
+            width: 100%;
+        }
+
+        .rounded {
+            margin: auto;
+            width: 50%;
+            border: 0.15em solid #FF8800;
+            padding: 0.5em;
+            border-radius: 0.5em;
+            background-color: #FF8800;
+            text-align: center;
+            font-size: 1em;
+            color: white;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="header">
+        <p><b>Lloko Pickup</b></p>
+    </div>
+
+
+    <table cellpadding="0" border="0" cellspacing="0" align="center" style="width:900px;">
+        <tbody>
+            <tr>
+                <br>
+                <td rowspan="1" valign="top" style="padding:10px; font-size:15px; width:100%; text-align: center;">
+                    Hola ${correo}, <br>
+                    <br>
+                    Estos son tus datos de acceso, una vez que ingreses al sistema recuerda actualizar tu contrase&ntilde;a
+                    <br>
+                    <br>
+                    <br>
+                    <!-- _________________________________________________-->
+                    <hr>
+                    <br>
+                    <span style="font-size:15px">CORREO:</span>
+                    ${correo} <br>
+                    <br>
+                    <span style="font-size:15px">CONTRASE&Ntilde;A:</span>
+                    ${contrasena} <br>
+                    <br>                  
+                    <!-- _________________________________________________-->
+                    <hr> <br>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table cellpadding="0" border="0" cellspacing="0" align="center" style="width:900px;">
+        <tbody>
+            <tr>
+                <td align="center" style="padding:10px; font-size:15px; text-align: center;">
+                    <span>Ingrese a la aplicaci&oacute;n de Lloko Pickup con su email y contrase&ntilde;a.</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+
+    <div class="PieDePagina">
+        <div>
+            <center>
+                <p style="font-size:18px">Este es un mensaje generado de manera autom&aacute;tica, no responda a
+                    &eacute;ste correo</p>
+                <div>
+                    Ver los <a href='http://www.pickup.lloko.com/llokopickup/documento/terminos.jsp'
+                        style='color: white !important; text-decoration: underline;'>T&eacute;rminos
+                        y Condiciones</a> y
+                    <a href='http://www.pickup.lloko.com/llokopickup/documento/politica.jsp'
+                        style='color: white !important; text-decoration: underline;'>Pol&iacute;tica
+                        de Privacidad</a>.
+                </div>
+                <a href="http://admin.lloko.com/llokopickup/access/login.action" target="_blank"
+                    style='color: white !important; text-decoration: underline;'>Lloko Pickup</a>
+            </center>
+        </div>
+    </div>
+</body>
+
+</html>

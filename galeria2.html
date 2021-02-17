@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+    integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+    integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+    crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="instagramfeed.js"></script>
+</head>
+
+<body>
+  <form id="myForm" autocomplete="off">
+    <input type="text" id="username" placeholder="Enter Username" required>
+    <input type="submit" value="Search">   
+  </form>
+  <div style="display: flex; width:100%; flex-direction: row; justify-content: center;">
+    <div id="divContenedor1" style="width:50%;height: 300px;">
+
+      <div id="divContenedor2"
+        style="display: flex; width:100%; height: 100px; flex-direction: row; justify-content: center;">
+        <div id="div1" style="width: 33.33%; height:auto;"></div>
+        <div style="width: 1px;height:auto;"></div>
+        <div id="div2" style="width: 33.33%; height:auto;"></div>
+        <div style="width: 1px;height:auto;"></div>
+        <div id="div3" style="width: 33.33%; height:auto;"></div>
+      </div>
+
+      <div style="width:auto;height:1px;"></div>
+
+      <div id="divContenedor3"
+        style="width:100%; height: 200px; display: flex; flex-direction: row; justify-content: center;">
+        <div id="divContenedor4"
+          style="width: 33.33%; display: flex; flex-direction: column; justify-content: center;">
+          <div id="div4" style="width: 100%; height: auto; "></div>
+          <div style="width:auto;height:1px;"></div>
+          <div id="div5" style="width: 100%; height: auto; "></div>
+        </div>
+        <div style="width:1px;height:auto;"></div>
+        <div id="div6" style="width: 66.66%; height: auto;"></div>
+      </div>
+
+    </div>
+    <div style="width:1px;height:auto;"></div>
+    <div id="div7" style="width:50%; height: auto;"></div>
+  </div>
+  <div id="instagram-feed-demo"></div>
+</body>
+<script src="instagramfeed.js"></script>
+<script>
+  $('#myForm').submit(function (e) {
+    e.preventDefault()
+    var username = $("#username").val();
+    $('#div1').empty();
+    $('#div2').empty();
+    $('#div3').empty();
+    $('#div4').empty();
+    $('#div5').empty();
+    $('#div6').empty();
+    $('#div7').empty();
+
+    $.instagramFeed({
+      'username': username,
+      'display_biography': false,
+      'display_igtv': false,
+      'display_profile': false,
+      'callback': function callbackInst(data) {
+        var imagenesCargadas = 0;
+        var info = data.edge_owner_to_timeline_media;
+        $("#divContenedor1").height($("#divContenedor1").width());
+        $("#divContenedor2").height($("#div1").width());
+        $("#divContenedor3").height($("#div6").width());
+        $("#divContenedor4").height($("#div6").width());
+
+        $("#div7").height($("#divContenedor7").width());
+        for (
+          var i = 0; i < info.count; i++) {
+          var objPos = info.edges[i];
+          var is_video = objPos.node.is_video;
+          var strToAppend = "";
+          if (!is_video) {
+            var display_url = objPos.node.display_url;
+            var accessibility_caption = objPos.node.accessibility_caption;
+            if (imagenesCargadas === 0) {
+              var calc1 = $("#div1").width();
+              $("#div1").height(calc1);
+              strToAppend += "<img src=" + display_url + " alt=" + accessibility_caption + " width=" + calc1 + " height=" + calc1 + ">";
+              var div1 = document.getElementById('div1');
+              div1.innerHTML += strToAppend;
+              imagenesCargadas++;
+            } else if (imagenesCargadas === 1) {
+              var calc2 = $("#div2").width();
+              $("#div2").height(calc2);
+              strToAppend += "<img src=" + display_url + " alt=" + accessibility_caption + " width=" + calc2 + " height=" + calc2 + ">";
+              var div2 = document.getElementById('div2');
+              div2.innerHTML += strToAppend;
+              imagenesCargadas++;
+            } else if (imagenesCargadas === 2) {
+              var calc3 = $("#div3").width();
+              $("#div3").height(calc3);
+              strToAppend += "<img src=" + display_url + " alt=" + accessibility_caption + " width=" + calc3 + " height=" + calc3 + ">";
+              var div3 = document.getElementById('div3');
+              div3.innerHTML += strToAppend;
+              imagenesCargadas++;
+            } else if (imagenesCargadas === 3) {
+              var calc4 = $("#div4").width() - 0.5;
+              $("#div4").height(calc4);
+              strToAppend += "<img src=" + display_url + " alt=" + accessibility_caption + " width=" + calc4 + " height=" + calc4 + ">";
+              var div4 = document.getElementById('div4');
+              div4.innerHTML += strToAppend;
+              imagenesCargadas++;
+            } else if (imagenesCargadas === 4) {
+              var calc5 = $("#div5").width() - 0.5;
+              $("#div5").height(calc5);
+              strToAppend += "<img src=" + display_url + " alt=" + accessibility_caption + " width=" + calc5 + " height=" + calc5 + ">";
+              var div5 = document.getElementById('div5');
+              div5.innerHTML += strToAppend;
+              imagenesCargadas++;
+            } else if (imagenesCargadas === 5) {
+              var calc6 = $("#div6").width();
+              $("#div6").height(calc6);
+              strToAppend += "<img src=" + display_url + " alt=" + accessibility_caption + " width=" + calc6 + " height=" + calc6 + ">";
+              var div6 = document.getElementById('div6');
+              div6.innerHTML += strToAppend;
+              imagenesCargadas++;
+            } else if (imagenesCargadas === 6) {
+              var calc7 = $("#div7").width();
+              $("#div7").height(calc7);
+              strToAppend += "<img src=" + display_url + " alt=" + accessibility_caption + " width=" + calc7 + " height=" + calc7 + ">";
+              var div7 = document.getElementById('div7');
+              div7.innerHTML += strToAppend;
+              imagenesCargadas++;
+              break;
+            }
+          }
+        }
+      }
+    });
+  });
+
+
+</script>
+
+</html>

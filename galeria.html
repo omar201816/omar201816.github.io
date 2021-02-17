@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+    integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+    integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+    crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="instagramfeed.js"></script>
+  <style type="text/css">
+    .sinPadding {
+      padding: 0px 0px 0px 0px;
+    }
+
+    .sinMargin {
+      margin: 0px 0px 0px 0px;
+    }
+
+    .no-gutter>[class*='col-'] {
+      padding-right: 0;
+      padding-left: 0;
+    }
+
+    body {
+      font-size: 2em;
+    }
+
+    .padding-1 {
+      padding: 1px;
+    }
+
+    .card-img-top {
+      background: url('http://haulihuvila.com/wp-content/uploads/2012/09/hauli-huvila-campgrounds-lg.jpg') no-repeat center center;
+      background-size: cover;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="divReferencia" style="width: 100%;"></div>
+  <form id="myForm" autocomplete="off" style="display: none;">
+    <input type="text" id="username" placeholder="Enter Username" required>
+    <input type="submit" value="Search">
+  </form>
+  <div class="cointainer-fluid">
+    <div class="col-sm-6">
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="row">
+            <div class="col-sm-12 padding-1 h-100 w-100 d-flex justify-content-center align-items-center" id="d1">
+              <img id="img1" class="w-100 h-100" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12 padding-1 h-100 w-100 d-flex justify-content-center align-items-center" id="d2">
+              <img id="img2" class="w-100 h-100" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12 padding-1 h-100 w-100 d-flex justify-content-center align-items-center" id="d3">
+              <img id="img3" class="w-100 h-100" />
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-8">
+          <div class="row">
+            <div class="col-sm-6 padding-1 h-100 w-100 d-flex justify-content-center align-items-center" id="d4">
+              <img id="img4" class="w-100 h-100" />
+            </div>
+            <div class="col-sm-6 padding-1 h-100 w-100 d-flex justify-content-center align-items-center" id="d5">
+              <img id="img5" class="w-100 h-100" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12 padding-1 h-100 w-100 d-flex justify-content-center align-items-center" id="d6">
+              <img id="img6" class="w-100 h-100" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 padding-1 h-100 w-100 d-flex justify-content-center align-items-center" id="d7">
+      <img id="img7" class="w-100 h-100" />
+    </div>
+  </div>
+  <script>
+    $('#myForm').submit(function (e) {
+      e.preventDefault()
+      var username = $("#username").val();
+
+      $('#d1').empty();
+      $('#d2').empty();
+      $('#d3').empty();
+      $('#d4').empty();
+      $('#d5').empty();
+      $('#d6').empty();
+      $('#d7').empty();
+
+      $.instagramFeed({
+        'username': username,
+        'display_biography': false,
+        'display_igtv': false,
+        'display_profile': false,
+        'callback': function callbackInst(data) {
+          var imagenesCargadas = 0;
+          var info = data.edge_owner_to_timeline_media;
+          for (
+            var i = 0; i < info.count; i++) {
+            var objPos = info.edges[i];
+            var is_video = objPos.node.is_video;
+            var strToAppend = "";
+            if (!is_video) {
+              var display_url = objPos.node.display_url;
+              var accessibility_caption = objPos.node.accessibility_caption;
+              if (imagenesCargadas === 0) {
+                strToAppend = createImg(display_url, accessibility_caption);
+                var div1 = document.getElementById('d1');
+                div1.innerHTML += strToAppend;
+                imagenesCargadas++;
+              } else if (imagenesCargadas === 1) {
+                strToAppend = createImg(display_url, accessibility_caption);
+                var div2 = document.getElementById('d2');
+                div2.innerHTML += strToAppend;
+                imagenesCargadas++;
+              } else if (imagenesCargadas === 2) {
+                strToAppend = createImg(display_url, accessibility_caption);
+                var div3 = document.getElementById('d3');
+                div3.innerHTML += strToAppend;
+                imagenesCargadas++;
+              } else if (imagenesCargadas === 3) {
+                strToAppend = createImg(display_url, accessibility_caption);
+                var div4 = document.getElementById('d4');
+                div4.innerHTML += strToAppend;
+                imagenesCargadas++;
+              } else if (imagenesCargadas === 4) {
+                strToAppend = createImg(display_url, accessibility_caption);
+                var div5 = document.getElementById('d5');
+                div5.innerHTML += strToAppend;
+                imagenesCargadas++;
+              } else if (imagenesCargadas === 5) {
+                strToAppend = createImg(display_url, accessibility_caption);
+                var div6 = document.getElementById('d6');
+                div6.innerHTML += strToAppend;
+                imagenesCargadas++;
+              } else if (imagenesCargadas === 6) {
+                strToAppend = createImg(display_url, accessibility_caption);
+                var div7 = document.getElementById('d7');
+                div7.innerHTML += strToAppend;
+                imagenesCargadas++;
+                break;
+              }
+            }
+          }
+        }
+      });
+    });
+
+    $(document).ready(function () {
+      var anchoBase = $('#divReferencia').width();
+      console.log("El ancho es: "+anchoBase);
+      /*$('#d1').height(anchoBase/6);
+      $('#d2').height(anchoBase/6);
+      $('#d3').height(anchoBase/6);
+      $('#d4').height(anchoBase/6);
+      $('#d5').height(anchoBase/6);
+      $('#d6').height(anchoBase/3);
+      $('#d7').height(anchoBase/2);*/
+      /*$('#d1').height($('#d1').width());
+      $('#d2').height($('#d2').width());
+      $('#d3').height($('#d3').width());
+      $('#d4').height($('#d4').width());
+      $('#d5').height($('#d5').width());
+      $('#d6').height($('#d6').width());
+      $('#d7').height($('#d7').width());*/
+      createImg("https://s1.1zoom.me/big0/391/351308-admin.jpg", "1", document.getElementById('d1'));
+      createImg("https://s1.1zoom.me/big0/350/USA_Houses_Skyscrapers_461127.jpg", "2", document.getElementById('d2'));
+      createImg("https://s2.best-wallpaper.net/wallpaper/3840x2160/1711/Skyscrapers-buildings-illumination-night-city-river_3840x2160.jpg", "3", document.getElementById('d3'));
+      createImg("https://images5.alphacoders.com/658/658862.jpg", "4", document.getElementById('d4'));
+      createImg("https://i.pinimg.com/originals/71/6f/ed/716fed1f616235f6b5dba6250755331b.jpg", "5", document.getElementById('d5'));
+      createImg("https://i.pinimg.com/originals/09/23/bc/0923bcf6f61d4c9411cdc8ea85127eff.jpg", "6", document.getElementById('d6'));
+      createImg("https://icdn4.digitaltrends.com/image/digitaltrends_es/miami-background-2-1200x630-c-ar1.91.jpg", "7", document.getElementById('d7'));
+      /*$('#d1').height($('#d1').width());
+      $('#d2').height($('#d2').width());
+      $('#d3').height($('#d3').width());
+      $('#d4').height($('#d4').width());
+      $('#d5').height($('#d5').width());
+      $('#d6').height($('#d6').width());
+      $('#d7').height($('#d7').width());*/
+     /* $('#d1').height((anchoBase/6)-1);
+      $('#d2').height((anchoBase/6)-1);
+      $('#d3').height((anchoBase/6)-1);
+      $('#d4').height((anchoBase/6)-1);
+      $('#d5').height((anchoBase/6)-1);
+      $('#d6').height((anchoBase/3)-1);
+      $('#d7').height((anchoBase/2)-1);*/
+      /*$('#1').height(anchoBase/6);
+      $('#2').height(anchoBase/6);
+      $('#3').height(anchoBase/6);
+      $('#4').height(anchoBase/6);
+      $('#5').height(anchoBase/6);
+      $('#6').height(anchoBase/3);
+      $('#7').height(anchoBase/2);*/
+    });
+
+
+    function createImg(url, caption, div) {
+      var img = "<img class='h-100 w-100 d-flex justify-content-center align-items-center' src='"+url+"'/>";
+      div.innerHTML = img;
+      /*var divv = "<div class='h-100 w-100 mh-100 mw-100' style='background-color: #12345"+caption+";'>123456789</br>123456789</br>123456789</br>123456789</br>123456789</br>123456789</br>123456789</br>123456789</br>123456789</br>123456789</br></div>";
+      div.innerHTML = divv;*/
+      /*
+          background-image:url('w3css.gif'); background-repeat:no-repeat; background-size:100% 100%;
+      */
+      //var img = "<did style='background-repeat:no-repeat; background-size:100% 100%; background-color: red;'></div>";
+      //div.innerHTML = img;
+      /*var content ="<p class='h-100 w-100 mw-100 mh-100'>"+caption+caption+caption+caption+caption+caption+caption+caption+url+url+url+url+"</p>"
+      div.innerHTML = content;*/
+
+      //var img = "<img id='" + caption + "' class='h-100 w-100' style='background-repeat: no-repeat; background-position: center; background-size: cover;'/>";
+      // min-vw-100 min-vh-100 vw-100 vh-100
+      //var img = "<img id='" + caption + "' class='h-100 w-100 mw-100 mh-100 img-fluid mx-auto d-block' style='' src='" + url + "'/>";
+      //var img = "<img id='" + caption + "' style='h-100' src='" + url + "'/>";
+      //var img = "<img id='" + caption + "' class='h-100 w-100 mw-100 mh-100 img-responsive mx-auto d-block card-img-top'/>";
+      
+      //var img = "<img id='" + caption + "' class='h-100 w-100 d-flex justify-content-center align-items-center'/>";
+      
+      //var img = "<img id='" + caption + "' class='h-100 w-100 d-flex justify-content-center align-items-center' src='"+url+"'/>";
+      
+      //var imagen = document.getElementById(caption);
+      //console.log(imagen);
+      /*var imagen = document.getElementById(caption);
+      imagen.style.backgroundImage = 'url("' + url + '")';
+      imagen.style.backgroundPosition = '0 0';*/
+
+      /**condiv**/
+      //var divCreado = "<div class='noselect'><div class='position-relative view overlay zoom h-100 w-100'><img class='card-img-top rounded z-depth-1 ns-imgdetail cursor-pointer' src='"+url+"' alt='imagen'></div></div>";
+      //div.innerHTML = divCreado;
+    }
+  </script>
+</body>
+
+</html>

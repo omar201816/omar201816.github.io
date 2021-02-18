@@ -34,6 +34,7 @@
 
     body {
       font-size: 2em;
+      color: white !important;
     }
 
     .clase1 {
@@ -56,59 +57,28 @@
 </head>
 
 <body>
-  <div id="divReferencia" style="width: 100%;"></div>
-  <form id="myForm" autocomplete="off" style="display: none;">
-    <input type="text" id="username" placeholder="Enter Username" required>
-    <input type="submit" value="Search">
-  </form>
-  <div class="cointainer-fluid">   
-      <div class="col-md-12 col-sm-6">
-        <div class="row">
-          <div class="col-sm-4">
-            <div class="row">
-              <div class="col-sm-12 padding-1 h-100 w-100 d-flex justify-content-center align-items-center clase1"
-                id="d1">
-                <!-- <img id="img1" class="w-100 h-100" /> -->
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-12 padding-1 h-100 w-100 d-flex justify-content-center align-items-center clase1"
-                id="d2">
-                <!-- <img id="img2" class="w-100 h-100" /> -->
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-12 padding-1 h-100 w-100 d-flex justify-content-center align-items-center clase1"
-                id="d3">
-                <!-- <img id="img3" class="w-100 h-100" /> -->
-              </div>
-            </div>
+  <div class="row">
+    <div class="col-lg-6 col-md-12 col-sm-12">
+      <div class="row">
+        <div class="col-md-4 clase1" style="background-color: lightgrey; height: 200px;" id="d1" class="h-100 w-100">Imagen 1</div>
+        <div class="col-md-4 clase1" style="background-color: lightgrey; height: 200px;" id="d2" class="h-100 w-100">Imagen 2</div>
+        <div class="col-md-4 clase1" style="background-color: lightgrey; height: 200px;" id="d3" class="h-100 w-100">Imagen 3</div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 col-sm-12">
+          <div class="row">
+            <div class="col-md-12 clase1" style="background-color: black; height: 200px;" id="d4" class="h-100 w-100">Imagen 4</div>
           </div>
-          <div class="col-sm-8">
-            <div class="row">
-              <div class="col-sm-6 padding-1 h-100 w-100 d-flex justify-content-center align-items-center clase1"
-                id="d4">
-                <!-- <img id="img4" class="w-100 h-100" /> -->
-              </div>
-              <div class="col-sm-6 padding-1 h-100 w-100 d-flex justify-content-center align-items-center clase1"
-                id="d5">
-                <!-- <img id="img5" class="w-100 h-100" /> -->
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-sm-12 padding-1 h-100 w-100 d-flex justify-content-center align-items-center clase1"
-                id="d6">
-                <!-- <img id="img6" class="w-100 h-100" /> -->
-              </div>
-            </div>
+          <div class="row">
+            <div class="col-md-12 clase1" style="background-color: lightgrey; height: 200px;" id="d5" class="h-100 w-100">Imagen 5</div>
           </div>
-
+        </div>
+        <div class="col-md-8 col-sm-12 clase1" style="background-color: gray; height: 400px;" id="d6" class="h-100 w-100">Imagen 6</div>
       </div>
     </div>
-    <div class="col-md-12 col-sm-6 padding-1 h-100 w-100 d-flex justify-content-center align-items-center clase1" id="d7">
-      <!-- <img id="img7" class="w-100 h-100" /> -->
-    </div>
+    <div class="col-lg-6 col-md-12 col-sm-12 clase1" style="background-color: black; height: 600px;" id="d7" class="h-100 w-100">Imagen 7</div>
   </div>
+
   <script>
     $(document).ready(function () {
       var imagen1 = "https://s1.1zoom.me/big0/391/351308-admin.jpg";
@@ -125,16 +95,16 @@
       document.getElementById("d5").style.backgroundColor = "brown";
       document.getElementById("d6").style.backgroundColor = "pink";
       document.getElementById("d7").style.backgroundColor = "lime";*/
-      
-      document.getElementById("d1").style.maxHeight = $('#d1').width() + "px";
+
+      /*document.getElementById("d1").style.maxHeight = $('#d1').width() + "px";
       document.getElementById("d2").style.maxHeight = $('#d2').width() + "px";
       document.getElementById("d3").style.maxHeight = $('#d3').width() + "px";
       document.getElementById("d4").style.maxHeight = $('#d4').width() + "px";
       document.getElementById("d5").style.maxHeight = $('#d5').width() + "px";
       document.getElementById("d6").style.maxHeight = $('#d6').width() + "px";
-      document.getElementById("d7").style.maxHeight = $('#d7').width() + "px";
-      
-      
+      document.getElementById("d7").style.maxHeight = $('#d7').width() + "px";*/
+
+
       /*document.getElementById("d1").style.minHeight = $('#d1').width() + "px";
       document.getElementById("d2").style.minHeight = $('#d2').width() + "px";
       document.getElementById("d3").style.minHeight = $('#d3').width() + "px";
@@ -149,13 +119,13 @@
       document.getElementById("d5").innerHTML = "<div id='5' class='mh-100 mw-100'></div>";
       document.getElementById("d6").innerHTML = "<div id='6' class='mh-100 mw-100'></div>";
       document.getElementById("d7").innerHTML = "<div id='7' class='mh-100 mw-100'></div>";*/
-      document.getElementById("d1").innerHTML = "<div id='1' style='min-height:" + $('#d1').width() + "px;'></div>";
+      /*document.getElementById("d1").innerHTML = "<div id='1' style='min-height:" + $('#d1').width() + "px;'></div>";
       document.getElementById("d2").innerHTML = "<div id='2' style='min-height:" + $('#d2').width() + "px;'></div>";
       document.getElementById("d3").innerHTML = "<div id='3' style='min-height:" + $('#d3').width() + "px;'></div>";
       document.getElementById("d4").innerHTML = "<div id='4' style='min-height:" + $('#d4').width() + "px;'></div>";
       document.getElementById("d5").innerHTML = "<div id='5' style='min-height:" + $('#d5').width() + "px;'></div>";
       document.getElementById("d6").innerHTML = "<div id='6' style='min-height:" + $('#d6').width() + "px;'></div>";
-      document.getElementById("d7").innerHTML = "<div id='7' style='min-height:" + $('#d7').width() + "px;'></div>";
+      document.getElementById("d7").innerHTML = "<div id='7' style='min-height:" + $('#d7').width() + "px;'></div>";*/
       document.getElementById("d1").style.backgroundImage = "url('" + imagen1 + "')";
       document.getElementById("d2").style.backgroundImage = "url('" + imagen2 + "')";
       document.getElementById("d3").style.backgroundImage = "url('" + imagen3 + "')";
@@ -178,7 +148,7 @@
 
 
 
-      
+
       /*document.getElementById("d1").innerHTML = "<img src='" + imagen1 + "' style='min-height:" + $('#d1').width() + "px; max-height:" + $('#d1').width() + "px;'/>";
       document.getElementById("d2").innerHTML = "<img src='" + imagen2 + "' style='min-height:" + $('#d2').width() + "px; max-height:" + $('#d2').width() + "px;'/>";
       document.getElementById("d3").innerHTML = "<img src='" + imagen3 + "' style='min-height:" + $('#d3').width() + "px; max-height:" + $('#d3').width() + "px;'/>";

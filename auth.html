@@ -1,25 +1,97 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Instafeed on Your Website</title>
 	<style type="text/css">
-		a img{ 
+		a img {
 			width: 25%;
 		}
+
+		.clase1 {
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center;
+		}
 	</style>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+		integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+		integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+		integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+		crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
+
 <body>
-	<h1 style="text-align: center">Show Instagram Feed on your Website</h1>
-    	<div id="instafeed-container"></div>
-			<script src="https://cdn.jsdelivr.net/gh/stevenschobert/instafeed.js@2.0.0rc1/src/instafeed.min.js"></script>
-			<script type="text/javascript">
-	var userFeed = new Instafeed({
-		get: 'user',
-		target: "instafeed-container",
-    	resolution: 'low_resolution',
-		accessToken: 'IGQVJYTUlBWlFDMjZAGSnFRZAnNEZAW1Ua1R3eXc4VFhaeEhCLVAzTGxGQzNPZAnNFZAGVuazlldUstVnl3SFZAiU25BbDNsZATJ3NFU2c093NnppbG1pMDlDdHd2Vkdyd0pJdTQwTkJaZAEZAobllBckxDX3pVZAgZDZD'
-	});
-	userFeed.run();
+	<div class="row">
+		<div class="col-lg-6 col-md-12 col-sm-12">
+			<div class="row">
+				<div class="col-md-4 clase1" style="background-color: lightgrey; height: 200px;" id="d1" class="h-100 w-100">
+				</div>
+				<div class="col-md-4 clase1" style="background-color: lightgrey; height: 200px;" id="d2" class="h-100 w-100">
+				</div>
+				<div class="col-md-4 clase1" style="background-color: lightgrey; height: 200px;" id="d3" class="h-100 w-100">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4 col-sm-12">
+					<div class="row">
+						<div class="col-md-12 clase1" style="background-color: black; height: 200px;" id="d4" class="h-100 w-100">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12 clase1" style="background-color: lightgrey; height: 200px;" id="d5"
+							class="h-100 w-100"></div>
+					</div>
+				</div>
+				<div class="col-md-8 col-sm-12 clase1" style="background-color: gray; height: 400px;" id="d6"
+					class="h-100 w-100"></div>
+			</div>
+		</div>
+		<div class="col-lg-6 col-md-12 col-sm-12 clase1" style="background-color: black; height: 600px;" id="d7"
+			class="h-100 w-100"></div>
+	</div>
+
+	<div id="instafeed-container" style="display: none;"></div>
+	<script src="https://cdn.jsdelivr.net/gh/stevenschobert/instafeed.js@2.0.0rc1/src/instafeed.min.js"></script>
+	<script type="text/javascript">
+		var imgCounter = 0;
+		var userFeed = new Instafeed({
+			get: 'user',
+			target: "instafeed-container",
+			resolution: 'low_resolution',
+			accessToken: 'IGQVJYTUlBWlFDMjZAGSnFRZAnNEZAW1Ua1R3eXc4VFhaeEhCLVAzTGxGQzNPZAnNFZAGVuazlldUstVnl3SFZAiU25BbDNsZATJ3NFU2c093NnppbG1pMDlDdHd2Vkdyd0pJdTQwTkJaZAEZAobllBckxDX3pVZAgZDZD',
+
+			transform: function (item) { //Transform receives each item as its argument
+				imgCounter++;
+				var imagen = item.image;
+				if (imgCounter == 1) {
+					document.getElementById("d7").style.backgroundImage = "url('" + imagen + "')";
+				} else if (imgCounter == 2) {
+					document.getElementById("d6").style.backgroundImage = "url('" + imagen + "')";
+				} else if (imgCounter == 3) {
+					document.getElementById("d5").style.backgroundImage = "url('" + imagen + "')";
+				} else if (imgCounter == 4) {
+					document.getElementById("d4").style.backgroundImage = "url('" + imagen + "')";
+				} else if (imgCounter == 5) {
+					document.getElementById("d3").style.backgroundImage = "url('" + imagen + "')";
+				} else if (imgCounter == 6) {
+					document.getElementById("d2").style.backgroundImage = "url('" + imagen + "')";
+				} else if (imgCounter == 7) {
+					document.getElementById("d1").style.backgroundImage = "url('" + imagen + "')";
+				}
+				return item;
+			}
+		});
+		userFeed.run();
 	</script>
 </body>
+
 </html>

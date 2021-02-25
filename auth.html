@@ -67,6 +67,7 @@
 			accessToken: 'IGQVJYTUlBWlFDMjZAGSnFRZAnNEZAW1Ua1R3eXc4VFhaeEhCLVAzTGxGQzNPZAnNFZAGVuazlldUstVnl3SFZAiU25BbDNsZATJ3NFU2c093NnppbG1pMDlDdHd2Vkdyd0pJdTQwTkJaZAEZAobllBckxDX3pVZAgZDZD',
 			/*--------En accesToken va el token que se generó, en el paso final de la documentación------------*/
 			transform: function (item) { //Transform receives each item as its argument
+				console.log("cargado de la API");
 				imgCounter++;
 				var imagen = item.image;
 				if (imgCounter === 1) {
@@ -94,7 +95,8 @@
 				return item;
 			},
 			error: function(errorData){
-					alert(errorData);
+					//alert(errorData);
+					console.log("cargado de localstorage");
 					var img_d7 = localStorage.getItem('img_d7');
   				var img_d6 = localStorage.getItem('img_d6');
   				var img_d5 = localStorage.getItem('img_d5');

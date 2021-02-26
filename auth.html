@@ -14,6 +14,9 @@
 			background-size: contain;
 			background-repeat: no-repeat;
 			background-position: center;
+			height: 600px;
+			min-height: 250px;
+			max-height: 650px;
 		}
 	</style>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -35,27 +38,27 @@
 	<div class="row">
 		<div class="col-lg-6 col-md-12 col-sm-12">
 			<div class="row">
-				<div class="col-md-4 h-100 w-100" id="d1" style="min-height: 200px;">
+				<div class="col-md-4" id="d1" style="min-height: 200px;">
 				</div>
-				<div class="col-md-4 h-100 w-100" id="d2" style="min-height: 200px;">
+				<div class="col-md-4" id="d2" style="min-height: 200px;">
 				</div>
-				<div class="col-md-4 h-100 w-100" id="d3" style="min-height: 200px;">
+				<div class="col-md-4" id="d3" style="min-height: 200px;">
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-4 col-sm-12">
 					<div class="row">
-						<div class="col-md-12 h-100 w-100" id="d4" style="min-height: 200px;">
+						<div class="col-md-12" id="d4" style="min-height: 200px;">
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-md-12 h-100 w-100" id="d5" style="min-height: 200px;"></div>
+						<div class="col-md-12" id="d5" style="min-height: 200px;"></div>
 					</div>
 				</div>
-				<div class="col-md-8 col-sm-12 h-100 w-100" id="d6" style="min-height: 400px;"></div>
+				<div class="col-md-8 col-sm-12" id="d6" style="min-height: 400px;"></div>
 			</div>
 		</div>
-		<div class="col-lg-6 col-md-12 col-sm-12 h-100 w-100" id="d7" style="min-height: 600px;"></div>
+		<div class="col-lg-6 col-md-12 col-sm-12" id="d7" style="min-height: 600px;"></div>
 	</div>
 
 	<div id="instafeed-container" style="display: none;"></div>
@@ -68,7 +71,7 @@
 		$(window).on('resize', function () {
 			var win = $(this); //this = window
 			console.log(win.width());
-			if (win.width() <= 750) {
+			if (win.width() <= 750) {				
 				$("#d1").removeClass("clase1");
 				$("#d2").removeClass("clase1");
 				$("#d3").removeClass("clase1");
@@ -76,6 +79,24 @@
 				$("#d5").removeClass("clase1");
 				$("#d6").removeClass("clase1");
 				$("#d7").removeClass("clase1");
+				
+				//Remover la clase h-100
+				$("#d1").removeClass("h-100");
+				$("#d2").removeClass("h-100");
+				$("#d3").removeClass("h-100");
+				$("#d4").removeClass("h-100");
+				$("#d5").removeClass("h-100");
+				$("#d6").removeClass("h-100");
+				$("#d7").removeClass("h-100");
+				//Remover la clase w-100
+				$("#d1").removeClass("w-100");
+				$("#d2").removeClass("w-100");
+				$("#d3").removeClass("w-100");
+				$("#d4").removeClass("w-100");
+				$("#d5").removeClass("w-100");
+				$("#d6").removeClass("w-100");
+				$("#d7").removeClass("w-100");
+
 				$("#d1").addClass("clase2");
 				$("#d2").addClass("clase2");
 				$("#d3").addClass("clase2");
@@ -98,6 +119,22 @@
 				$("#d5").addClass("clase1");
 				$("#d6").addClass("clase1");
 				$("#d7").addClass("clase1");
+				//Agregar la clase h-100
+				$("#d1").addClass("h-100");
+				$("#d2").addClass("h-100");
+				$("#d3").addClass("h-100");
+				$("#d4").addClass("h-100");
+				$("#d5").addClass("h-100");
+				$("#d6").addClass("h-100");
+				$("#d7").addClass("h-100");
+				//Agregar la clase w-100
+				$("#d1").addClass("w-100");
+				$("#d2").addClass("w-100");
+				$("#d3").addClass("w-100");
+				$("#d4").addClass("w-100");
+				$("#d5").addClass("w-100");
+				$("#d6").addClass("w-100");
+				$("#d7").addClass("w-100");
 			}
 		});
 
@@ -176,6 +213,22 @@
 				$("#d5").addClass("clase1");
 				$("#d6").addClass("clase1");
 				$("#d7").addClass("clase1");
+				//Agregar la clase h-100
+				$("#d1").addClass("h-100");
+				$("#d2").addClass("h-100");
+				$("#d3").addClass("h-100");
+				$("#d4").addClass("h-100");
+				$("#d5").addClass("h-100");
+				$("#d6").addClass("h-100");
+				$("#d7").addClass("h-100");
+				//Agregar la clase w-100
+				$("#d1").addClass("w-100");
+				$("#d2").addClass("w-100");
+				$("#d3").addClass("w-100");
+				$("#d4").addClass("w-100");
+				$("#d5").addClass("w-100");
+				$("#d6").addClass("w-100");
+				$("#d7").addClass("w-100");
 			}
 
 		});								

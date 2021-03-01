@@ -3,7 +3,7 @@
 
 <head>
 	<title>Instafeed on Your Website</title>
-	<style type="text/css">	
+	<style type="text/css">
 		.clase1 {
 			background-size: cover;
 			background-repeat: no-repeat;
@@ -67,14 +67,15 @@
 	<div id="instafeed-container" style="display: none;"></div>
 
 	<script src="https://cdn.jsdelivr.net/gh/stevenschobert/instafeed.js@2.0.0rc1/src/instafeed.min.js"></script>
+	//IGQVJYTUlBWlFDMjZAGSnFRZAnNEZAW1Ua1R3eXc4VFhaeEhCLVAzTGxGQzNPZAnNFZAGVuazlldUstVnl3SFZAiU25BbDNsZATJ3NFU2c093NnppbG1pMDlDdHd2Vkdyd0pJdTQwTkJaZAEZAobllBckxDX3pVZAgZDZD
+	//
+
 	<script type="text/javascript">
-		//IGQVJYTUlBWlFDMjZAGSnFRZAnNEZAW1Ua1R3eXc4VFhaeEhCLVAzTGxGQzNPZAnNFZAGVuazlldUstVnl3SFZAiU25BbDNsZATJ3NFU2c093NnppbG1pMDlDdHd2Vkdyd0pJdTQwTkJaZAEZAobllBckxDX3pVZAgZDZD
-		//
 
 		$(window).on('resize', function () {
-			var win = $(this); //this = window
-			console.log(win.width());
-			if (win.width() <= 750) {				
+			var win = $(this); //this = window                
+			if (win.width() <= 750) {
+
 				$("#d1").removeClass("clase1");
 				$("#d2").removeClass("clase1");
 				$("#d3").removeClass("clase1");
@@ -82,7 +83,7 @@
 				$("#d5").removeClass("clase1");
 				$("#d6").removeClass("clase1");
 				$("#d7").removeClass("clase1");
-				
+
 				//Remover la clase h-100
 				$("#d1").removeClass("h-100");
 				$("#d2").removeClass("h-100");
@@ -107,6 +108,8 @@
 				$("#d5").addClass("clase2");
 				$("#d6").addClass("clase2");
 				$("#d7").addClass("clase2");
+
+				updateHeightDiv($("#d7").width() + 20);
 			} else {
 				$("#d1").removeClass("clase2");
 				$("#d2").removeClass("clase2");
@@ -141,6 +144,16 @@
 			}
 		});
 
+		function updateHeightDiv(newHeight) {
+			$("#d1").height(newHeight);
+			$("#d2").height(newHeight);
+			$("#d3").height(newHeight);
+			$("#d4").height(newHeight);
+			$("#d5").height(newHeight);
+			$("#d6").height(newHeight);
+			$("#d7").height(newHeight);
+		}
+
 		$(document).ready(function () {
 			var imgCounter = 0;
 			var userFeed = new Instafeed({
@@ -149,8 +162,7 @@
 				resolution: 'low_resolution',
 				accessToken: 'IGQVJXYUFUQU9fR1dXV3dWMHF2ZA0FsRkNHSlc1V3BGdEFvRWpGT1ZA1a2IwZAmVKQURuQ0o4YTl0YVJpaXFoNE1JQnYwbFRIcmpkSzV5cjJMWXE0bGdrTnZAxQlFaTmI4Tm9MVUI4emFFSEs2U0FFYnJVTQZDZD',
 				/*--------En accesToken va el token que se generó, en el paso final de la documentación------------*/
-				transform: function (item) { //Transform receives each item as its argument
-					console.log("cargado de la API");
+				transform: function (item) { //Transform receives each item as its argument                        
 					imgCounter++;
 					var imagen = item.image;
 					if (imgCounter === 1) {
@@ -178,28 +190,33 @@
 					return item;
 				},
 				error: function (errorData) {
-					//alert(errorData);
-					console.log("cargado de localstorage");
-					var img_d7 = localStorage.getItem('img_d7');
-					var img_d6 = localStorage.getItem('img_d6');
-					var img_d5 = localStorage.getItem('img_d5');
-					var img_d4 = localStorage.getItem('img_d4');
-					var img_d3 = localStorage.getItem('img_d3');
-					var img_d2 = localStorage.getItem('img_d2');
-					var img_d1 = localStorage.getItem('img_d1');
-					document.getElementById("d7").style.backgroundImage = "url('" + img_d7 + "')";
-					document.getElementById("d6").style.backgroundImage = "url('" + img_d6 + "')";
-					document.getElementById("d5").style.backgroundImage = "url('" + img_d5 + "')";
-					document.getElementById("d4").style.backgroundImage = "url('" + img_d4 + "')";
-					document.getElementById("d3").style.backgroundImage = "url('" + img_d3 + "')";
-					document.getElementById("d2").style.backgroundImage = "url('" + img_d2 + "')";
-					document.getElementById("d1").style.backgroundImage = "url('" + img_d1 + "')";
+					if (localStorage.getItem('img_d1') !== null &&
+						localStorage.getItem('img_d2') !== null &&
+						localStorage.getItem('img_d3') !== null &&
+						localStorage.getItem('img_d4') !== null &&
+						localStorage.getItem('img_d5') !== null &&
+						localStorage.getItem('img_d6') !== null &&
+						localStorage.getItem('img_d7') !== null) {
+						var img_d7 = localStorage.getItem('img_d7');
+						var img_d6 = localStorage.getItem('img_d6');
+						var img_d5 = localStorage.getItem('img_d5');
+						var img_d4 = localStorage.getItem('img_d4');
+						var img_d3 = localStorage.getItem('img_d3');
+						var img_d2 = localStorage.getItem('img_d2');
+						var img_d1 = localStorage.getItem('img_d1');
+						document.getElementById("d7").style.backgroundImage = "url('" + img_d7 + "')";
+						document.getElementById("d6").style.backgroundImage = "url('" + img_d6 + "')";
+						document.getElementById("d5").style.backgroundImage = "url('" + img_d5 + "')";
+						document.getElementById("d4").style.backgroundImage = "url('" + img_d4 + "')";
+						document.getElementById("d3").style.backgroundImage = "url('" + img_d3 + "')";
+						document.getElementById("d2").style.backgroundImage = "url('" + img_d2 + "')";
+						document.getElementById("d1").style.backgroundImage = "url('" + img_d1 + "')";
+					}
 				}
 			});
 			userFeed.run();
 
-			var win = $(this); //this = window			
-			console.log(win.width());
+			var win = $(this); //this = window			                
 			if (win.width() <= 750) {
 				$("#d1").addClass("clase2");
 				$("#d2").addClass("clase2");
@@ -208,7 +225,8 @@
 				$("#d5").addClass("clase2");
 				$("#d6").addClass("clase2");
 				$("#d7").addClass("clase2");
-			} else {				
+				updateHeightDiv($("#d7").width() + 20);
+			} else {
 				$("#d1").addClass("clase1");
 				$("#d2").addClass("clase1");
 				$("#d3").addClass("clase1");
@@ -234,7 +252,7 @@
 				$("#d7").addClass("w-100");
 			}
 
-		});								
+		});
 	</script>
 </body>
 

@@ -5,12 +5,16 @@
 	<title>Instafeed on Your Website</title>
 	<style type="text/css">
 		.clase1 {
+			border: 1px solid #000;
 			background-size: cover;
 			background-repeat: no-repeat;
-			background-position: center;
+			background-position: center;			
+			min-height: 600px;	
+			min-width: 600px;			
 		}
 
 		.clase2 {
+			border: 1px solid #000;
 			background-size: cover;
 			background-repeat: no-repeat;
 			background-position: center;
@@ -67,13 +71,14 @@
 	<div id="instafeed-container" style="display: none;"></div>
 
 	<script src="https://cdn.jsdelivr.net/gh/stevenschobert/instafeed.js@2.0.0rc1/src/instafeed.min.js"></script>
-	//IGQVJYTUlBWlFDMjZAGSnFRZAnNEZAW1Ua1R3eXc4VFhaeEhCLVAzTGxGQzNPZAnNFZAGVuazlldUstVnl3SFZAiU25BbDNsZATJ3NFU2c093NnppbG1pMDlDdHd2Vkdyd0pJdTQwTkJaZAEZAobllBckxDX3pVZAgZDZD
-	//
 
 	<script type="text/javascript">
-
+	//IGQVJXYUFUQU9fR1dXV3dWMHF2ZA0FsRkNHSlc1V3BGdEFvRWpGT1ZA1a2IwZAmVKQURuQ0o4YTl0YVJpaXFoNE1JQnYwbFRIcmpkSzV5cjJMWXE0bGdrTnZAxQlFaTmI4Tm9MVUI4emFFSEs2U0FFYnJVTQZDZD
+	//IGQVJYTUlBWlFDMjZAGSnFRZAnNEZAW1Ua1R3eXc4VFhaeEhCLVAzTGxGQzNPZAnNFZAGVuazlldUstVnl3SFZAiU25BbDNsZATJ3NFU2c093NnppbG1pMDlDdHd2Vkdyd0pJdTQwTkJaZAEZAobllBckxDX3pVZAgZDZD
 		$(window).on('resize', function () {
-			var win = $(this); //this = window                
+			var win = $(this); //this = window    
+			//750 all min
+			//991            
 			if (win.width() <= 750) {
 
 				$("#d1").removeClass("clase1");
@@ -160,7 +165,7 @@
 				get: 'user',
 				target: "instafeed-container",
 				resolution: 'low_resolution',
-				accessToken: 'IGQVJXYUFUQU9fR1dXV3dWMHF2ZA0FsRkNHSlc1V3BGdEFvRWpGT1ZA1a2IwZAmVKQURuQ0o4YTl0YVJpaXFoNE1JQnYwbFRIcmpkSzV5cjJMWXE0bGdrTnZAxQlFaTmI4Tm9MVUI4emFFSEs2U0FFYnJVTQZDZD',
+			accessToken: 'IGQVJXYUFUQU9fR1dXV3dWMHF2ZA0FsRkNHSlc1V3BGdEFvRWpGT1ZA1a2IwZAmVKQURuQ0o4YTl0YVJpaXFoNE1JQnYwbFRIcmpkSzV5cjJMWXE0bGdrTnZAxQlFaTmI4Tm9MVUI4emFFSEs2U0FFYnJVTQZDZD',
 				/*--------En accesToken va el token que se generó, en el paso final de la documentación------------*/
 				transform: function (item) { //Transform receives each item as its argument                        
 					imgCounter++;

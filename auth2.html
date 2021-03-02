@@ -18,10 +18,10 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<style type="text/css">
 		/**Clase para anchos mayores a 900px**/
-		.e1-dm{
-			display: flex; 
-			width:100%; 
-			flex-direction: row; 
+		.e1-dm {
+			display: flex;
+			width: 100%;
+			flex-direction: row;
 			justify-content: center;
 		}
 
@@ -101,9 +101,9 @@
 		}
 
 		/**Clase para anchos de 900px a 751px**/
-		.e2-dm{			
-			width:100%; 
-			flex-direction: column; 
+		.e2-dm {
+			width: 100%;
+			flex-direction: column;
 			justify-content: center;
 		}
 
@@ -139,7 +139,7 @@
 		}
 
 		.e2-div-1-2-3 {
-			width: 33.33%;			
+			width: 33.33%;
 			max-height: 300px;
 			background-position: center;
 			background-size: contain;
@@ -149,7 +149,7 @@
 		}
 
 		.e2-div-4-5 {
-			width: 100%;			
+			width: 100%;
 			max-height: 300px;
 			background-position: center;
 			background-size: contain;
@@ -159,7 +159,7 @@
 		}
 
 		.e2-div-6 {
-			width: 66.66%;			
+			width: 66.66%;
 			max-height: 600px;
 			background-position: center;
 			background-size: contain;
@@ -179,9 +179,9 @@
 		}
 
 		/**Clase para anchos de 750px hacia abajo**/
-		.e3-dm{			
-			width:100%; 
-			flex-direction: column; 
+		.e3-dm {
+			width: 100%;
+			flex-direction: column;
 			justify-content: center;
 		}
 
@@ -190,7 +190,7 @@
 			height: auto;
 		}
 
-		.e3-div-dc2 {			
+		.e3-div-dc2 {
 			width: 100%;
 			height: auto;
 			flex-direction: column;
@@ -199,7 +199,7 @@
 
 		.e3-div-dc3 {
 			width: 100%;
-			height: auto;				
+			height: auto;
 			flex-direction: column;
 			justify-content: center;
 		}
@@ -211,7 +211,7 @@
 		}
 
 		.e3-div-1-2-3 {
-			width: 100%;			
+			width: 100%;
 			max-height: 780px;
 			background-position: center;
 			background-size: contain;
@@ -221,7 +221,7 @@
 		}
 
 		.e3-div-4-5 {
-			width: 100%;			
+			width: 100%;
 			max-height: 780px;
 			background-position: center;
 			background-size: contain;
@@ -231,7 +231,7 @@
 		}
 
 		.e3-div-6 {
-			width: 100%;			
+			width: 100%;
 			max-height: 780px;
 			background-position: center;
 			background-size: contain;
@@ -241,7 +241,7 @@
 		}
 
 		.e3-div-7 {
-			width: 100%;			
+			width: 100%;
 			max-height: 780px;
 			background-position: center;
 			background-size: contain;
@@ -286,158 +286,158 @@
 
 
 	<script>
-		  $(window).resize(function(){
-			var win = $(this); //this = window    
-			if (win.width() <= 785) {
-				//VALIDAR SI TIENE LA CLASE E2 EN TODOS LOS DIVS CON ID Y REMOVERLA
-				hasClassAndRemove("#dM", "e2-dm");
-				hasClassAndRemove("#dC1", "e2-div-dc1");
-				hasClassAndRemove("#dC2", "e2-div-dc2");
-				hasClassAndRemove("#dC3", "e2-div-dc3");
-				hasClassAndRemove("#dC4", "e2-div-dc4");
-				hasClassAndRemove("#d1", "e2-div-1-2-3");
-				hasClassAndRemove("#d2", "e2-div-1-2-3");
-				hasClassAndRemove("#d3", "e2-div-1-2-3");
-				hasClassAndRemove("#d4", "e2-div-4-5");
-				hasClassAndRemove("#d5", "e2-div-4-5");
-				hasClassAndRemove("#d6", "e2-div-6");
-				hasClassAndRemove("#d7", "e2-div-7");
-
-			//VALIDAR SI NO TIENE LA CLASE E3 EN TODOS LOS DIVS CON ID Y AGREGARLA
-			dontHasClassAndAdd("#dM", "e3-dm");
-				dontHasClassAndAdd("#dC1", "e3-div-dc1");
-				dontHasClassAndAdd("#dC2", "e3-div-dc2");
-				dontHasClassAndAdd("#dC3", "e3-div-dc3");
-				dontHasClassAndAdd("#dC4", "e3-div-dc4");
-				dontHasClassAndAdd("#d1", "e3-div-1-2-3");
-				dontHasClassAndAdd("#d2", "e3-div-1-2-3");
-				dontHasClassAndAdd("#d3", "e3-div-1-2-3");
-				dontHasClassAndAdd("#d4", "e3-div-4-5");
-				dontHasClassAndAdd("#d5", "e3-div-4-5");
-				dontHasClassAndAdd("#d6", "e3-div-6");
-				dontHasClassAndAdd("#d7", "e3-div-7");
-
-				//ACTUALIZAR LA ALTURA PARA QUE QUEDE EL DIV CUADRADO
-				/*updateDivSquare("#d1");
-				updateDivSquare("#d2");
-				updateDivSquare("#d3");
-				updateDivSquare("#d4");
-				updateDivSquare("#d5");
-				updateDivSquare("#d6");
-				updateDivSquare("#d7");*/
-				$("#d1").height($("#d7").width());
-				$("#d2").height($("#d7").width());
-				$("#d3").height($("#d7").width());
-				$("#d4").height($("#d7").width());
-				$("#d5").height($("#d7").width());
-				$("#d6").height($("#d7").width());
-				$("#d7").height($("#d7").width());
-				
-				$("#dC1").css('height','auto');
-				$("#dC2").css('height','auto');
-				$("#dC3").css('height','auto');
-				$("#dC4").css('height','auto');
-				//updateDivSquare("#dc1");
-				//$("#dC1").height($("#d7").width());
-				//$("#dC2").height($("#d1").width());
-				//$("#dC3").height($("#d6").width());
-			} else if (win.width() <= 900) {
-				//VALIDAR SI TIENE LA CLASE E1 O LA E3 EN LOS DIVS CON ID Y REMOVERLA
-				hasClassAndRemove("#dM", "e1-dm");
-				hasClassAndRemove("#dC1", "e1-div-dc1");
-				hasClassAndRemove("#dC2", "e1-div-dc2");
-				hasClassAndRemove("#dC3", "e1-div-dc3");
-				hasClassAndRemove("#dC4", "e1-div-dc4");
-				hasClassAndRemove("#d1", "e1-div-1-2-3");
-				hasClassAndRemove("#d2", "e1-div-1-2-3");
-				hasClassAndRemove("#d3", "e1-div-1-2-3");
-				hasClassAndRemove("#d4", "e1-div-4-5");
-				hasClassAndRemove("#d5", "e1-div-4-5");
-				hasClassAndRemove("#d6", "e1-div-6");
-				hasClassAndRemove("#d7", "e1-div-7");
-
-				hasClassAndRemove("#dM", "e3-dm");
-				hasClassAndRemove("#dC1", "e3-div-dc1");
-				hasClassAndRemove("#dC2", "e3-div-dc2");
-				hasClassAndRemove("#dC3", "e3-div-dc3");
-				hasClassAndRemove("#dC4", "e3-div-dc4");
-				hasClassAndRemove("#d1", "e3-div-1-2-3");
-				hasClassAndRemove("#d2", "e3-div-1-2-3");
-				hasClassAndRemove("#d3", "e3-div-1-2-3");
-				hasClassAndRemove("#d4", "e3-div-4-5");
-				hasClassAndRemove("#d5", "e3-div-4-5");
-				hasClassAndRemove("#d6", "e3-div-6");
-				hasClassAndRemove("#d7", "e3-div-7");
-
-				//VALIDAR SI NO TIENE LA CLASE E2 EN TODOS LOS DIVS CON ID Y AGREGARLA
-				dontHasClassAndAdd("#dM", "e2-dm");
-				dontHasClassAndAdd("#dC1", "e2-div-dc1");
-				dontHasClassAndAdd("#dC2", "e2-div-dc2");
-				dontHasClassAndAdd("#dC3", "e2-div-dc3");
-				dontHasClassAndAdd("#dC4", "e2-div-dc4");
-				dontHasClassAndAdd("#d1", "e2-div-1-2-3");
-				dontHasClassAndAdd("#d2", "e2-div-1-2-3");
-				dontHasClassAndAdd("#d3", "e2-div-1-2-3");
-				dontHasClassAndAdd("#d4", "e2-div-4-5");
-				dontHasClassAndAdd("#d5", "e2-div-4-5");
-				dontHasClassAndAdd("#d6", "e2-div-6");
-				dontHasClassAndAdd("#d7", "e2-div-7");
-
-				//ACTUALIZAR LA ALTURA PARA QUE QUEDE EL DIV CUADRADO
-				updateDivSquare("#d1");
-				updateDivSquare("#d2");
-				updateDivSquare("#d3");
-				updateDivSquare("#d4");
-				updateDivSquare("#d5");
-				updateDivSquare("#d6");
-				updateDivSquare("#d7");
-				$("#dC1").height($("#d7").width());
-				$("#dC2").height($("#d1").width());
-				$("#dC3").height($("#d6").width());
-			} else {
-				//VALIDAR SI TIENE LA CLASE E2 EN LOS DIVS CON ID Y REMOVERLA
-				hasClassAndRemove("#dM", "e2-dm");
-				hasClassAndRemove("#dC1", "e2-div-dc1");
-				hasClassAndRemove("#dC2", "e2-div-dc2");
-				hasClassAndRemove("#dC3", "e2-div-dc3");
-				hasClassAndRemove("#dC4", "e2-div-dc4");
-				hasClassAndRemove("#d1", "e2-div-1-2-3");
-				hasClassAndRemove("#d2", "e2-div-1-2-3");
-				hasClassAndRemove("#d3", "e2-div-1-2-3");
-				hasClassAndRemove("#d4", "e2-div-4-5");
-				hasClassAndRemove("#d5", "e2-div-4-5");
-				hasClassAndRemove("#d6", "e2-div-6");
-				hasClassAndRemove("#d7", "e2-div-7");
-
-				//VALIDAR SI NO TIENE LA CLASE E1 EN TODOS LOS DIVS CON ID Y AGREGARLA
-				dontHasClassAndAdd("#dM", "e1-dm");
-				dontHasClassAndAdd("#dC1", "e1-div-dc1");
-				dontHasClassAndAdd("#dC2", "e1-div-dc2");
-				dontHasClassAndAdd("#dC3", "e1-div-dc3");
-				dontHasClassAndAdd("#dC4", "e1-div-dc4");
-				dontHasClassAndAdd("#d1", "e1-div-1-2-3");
-				dontHasClassAndAdd("#d2", "e1-div-1-2-3");
-				dontHasClassAndAdd("#d3", "e1-div-1-2-3");
-				dontHasClassAndAdd("#d4", "e1-div-4-5");
-				dontHasClassAndAdd("#d5", "e1-div-4-5");
-				dontHasClassAndAdd("#d6", "e1-div-6");
-				dontHasClassAndAdd("#d7", "e1-div-7");
-
-				//ACTUALIZAR LA ALTURA PARA QUE QUEDE EL DIV CUADRADO
-				updateDivSquare("#d1");
-				updateDivSquare("#d2");
-				updateDivSquare("#d3");
-				updateDivSquare("#d4");
-				updateDivSquare("#d5");
-				updateDivSquare("#d6");
-				updateDivSquare("#d7");
-				$("#dC1").height($("#d7").width());
-				$("#dC2").height($("#d1").width());
-				$("#dC3").height($("#d6").width());
-			}
-		});
-
 		$(document).ready(function () {
+			$(window).resize(function () {
+				var win = $(this); //this = window    
+				if (win.width() <= 785) {
+					//VALIDAR SI TIENE LA CLASE E2 EN TODOS LOS DIVS CON ID Y REMOVERLA
+					hasClassAndRemove("#dM", "e2-dm");
+					hasClassAndRemove("#dC1", "e2-div-dc1");
+					hasClassAndRemove("#dC2", "e2-div-dc2");
+					hasClassAndRemove("#dC3", "e2-div-dc3");
+					hasClassAndRemove("#dC4", "e2-div-dc4");
+					hasClassAndRemove("#d1", "e2-div-1-2-3");
+					hasClassAndRemove("#d2", "e2-div-1-2-3");
+					hasClassAndRemove("#d3", "e2-div-1-2-3");
+					hasClassAndRemove("#d4", "e2-div-4-5");
+					hasClassAndRemove("#d5", "e2-div-4-5");
+					hasClassAndRemove("#d6", "e2-div-6");
+					hasClassAndRemove("#d7", "e2-div-7");
+
+					//VALIDAR SI NO TIENE LA CLASE E3 EN TODOS LOS DIVS CON ID Y AGREGARLA
+					dontHasClassAndAdd("#dM", "e3-dm");
+					dontHasClassAndAdd("#dC1", "e3-div-dc1");
+					dontHasClassAndAdd("#dC2", "e3-div-dc2");
+					dontHasClassAndAdd("#dC3", "e3-div-dc3");
+					dontHasClassAndAdd("#dC4", "e3-div-dc4");
+					dontHasClassAndAdd("#d1", "e3-div-1-2-3");
+					dontHasClassAndAdd("#d2", "e3-div-1-2-3");
+					dontHasClassAndAdd("#d3", "e3-div-1-2-3");
+					dontHasClassAndAdd("#d4", "e3-div-4-5");
+					dontHasClassAndAdd("#d5", "e3-div-4-5");
+					dontHasClassAndAdd("#d6", "e3-div-6");
+					dontHasClassAndAdd("#d7", "e3-div-7");
+
+					//ACTUALIZAR LA ALTURA PARA QUE QUEDE EL DIV CUADRADO
+					/*updateDivSquare("#d1");
+					updateDivSquare("#d2");
+					updateDivSquare("#d3");
+					updateDivSquare("#d4");
+					updateDivSquare("#d5");
+					updateDivSquare("#d6");
+					updateDivSquare("#d7");*/
+					$("#d1").height($("#d7").width());
+					$("#d2").height($("#d7").width());
+					$("#d3").height($("#d7").width());
+					$("#d4").height($("#d7").width());
+					$("#d5").height($("#d7").width());
+					$("#d6").height($("#d7").width());
+					$("#d7").height($("#d7").width());
+
+					$("#dC1").css('height', 'auto');
+					$("#dC2").css('height', 'auto');
+					$("#dC3").css('height', 'auto');
+					$("#dC4").css('height', 'auto');
+					//updateDivSquare("#dc1");
+					//$("#dC1").height($("#d7").width());
+					//$("#dC2").height($("#d1").width());
+					//$("#dC3").height($("#d6").width());
+				} else if (win.width() <= 900) {
+					//VALIDAR SI TIENE LA CLASE E1 O LA E3 EN LOS DIVS CON ID Y REMOVERLA
+					hasClassAndRemove("#dM", "e1-dm");
+					hasClassAndRemove("#dC1", "e1-div-dc1");
+					hasClassAndRemove("#dC2", "e1-div-dc2");
+					hasClassAndRemove("#dC3", "e1-div-dc3");
+					hasClassAndRemove("#dC4", "e1-div-dc4");
+					hasClassAndRemove("#d1", "e1-div-1-2-3");
+					hasClassAndRemove("#d2", "e1-div-1-2-3");
+					hasClassAndRemove("#d3", "e1-div-1-2-3");
+					hasClassAndRemove("#d4", "e1-div-4-5");
+					hasClassAndRemove("#d5", "e1-div-4-5");
+					hasClassAndRemove("#d6", "e1-div-6");
+					hasClassAndRemove("#d7", "e1-div-7");
+
+					hasClassAndRemove("#dM", "e3-dm");
+					hasClassAndRemove("#dC1", "e3-div-dc1");
+					hasClassAndRemove("#dC2", "e3-div-dc2");
+					hasClassAndRemove("#dC3", "e3-div-dc3");
+					hasClassAndRemove("#dC4", "e3-div-dc4");
+					hasClassAndRemove("#d1", "e3-div-1-2-3");
+					hasClassAndRemove("#d2", "e3-div-1-2-3");
+					hasClassAndRemove("#d3", "e3-div-1-2-3");
+					hasClassAndRemove("#d4", "e3-div-4-5");
+					hasClassAndRemove("#d5", "e3-div-4-5");
+					hasClassAndRemove("#d6", "e3-div-6");
+					hasClassAndRemove("#d7", "e3-div-7");
+
+					//VALIDAR SI NO TIENE LA CLASE E2 EN TODOS LOS DIVS CON ID Y AGREGARLA
+					dontHasClassAndAdd("#dM", "e2-dm");
+					dontHasClassAndAdd("#dC1", "e2-div-dc1");
+					dontHasClassAndAdd("#dC2", "e2-div-dc2");
+					dontHasClassAndAdd("#dC3", "e2-div-dc3");
+					dontHasClassAndAdd("#dC4", "e2-div-dc4");
+					dontHasClassAndAdd("#d1", "e2-div-1-2-3");
+					dontHasClassAndAdd("#d2", "e2-div-1-2-3");
+					dontHasClassAndAdd("#d3", "e2-div-1-2-3");
+					dontHasClassAndAdd("#d4", "e2-div-4-5");
+					dontHasClassAndAdd("#d5", "e2-div-4-5");
+					dontHasClassAndAdd("#d6", "e2-div-6");
+					dontHasClassAndAdd("#d7", "e2-div-7");
+
+					//ACTUALIZAR LA ALTURA PARA QUE QUEDE EL DIV CUADRADO
+					updateDivSquare("#d1");
+					updateDivSquare("#d2");
+					updateDivSquare("#d3");
+					updateDivSquare("#d4");
+					updateDivSquare("#d5");
+					updateDivSquare("#d6");
+					updateDivSquare("#d7");
+					$("#dC1").height($("#d7").width());
+					$("#dC2").height($("#d1").width());
+					$("#dC3").height($("#d6").width());
+				} else {
+					//VALIDAR SI TIENE LA CLASE E2 EN LOS DIVS CON ID Y REMOVERLA
+					hasClassAndRemove("#dM", "e2-dm");
+					hasClassAndRemove("#dC1", "e2-div-dc1");
+					hasClassAndRemove("#dC2", "e2-div-dc2");
+					hasClassAndRemove("#dC3", "e2-div-dc3");
+					hasClassAndRemove("#dC4", "e2-div-dc4");
+					hasClassAndRemove("#d1", "e2-div-1-2-3");
+					hasClassAndRemove("#d2", "e2-div-1-2-3");
+					hasClassAndRemove("#d3", "e2-div-1-2-3");
+					hasClassAndRemove("#d4", "e2-div-4-5");
+					hasClassAndRemove("#d5", "e2-div-4-5");
+					hasClassAndRemove("#d6", "e2-div-6");
+					hasClassAndRemove("#d7", "e2-div-7");
+
+					//VALIDAR SI NO TIENE LA CLASE E1 EN TODOS LOS DIVS CON ID Y AGREGARLA
+					dontHasClassAndAdd("#dM", "e1-dm");
+					dontHasClassAndAdd("#dC1", "e1-div-dc1");
+					dontHasClassAndAdd("#dC2", "e1-div-dc2");
+					dontHasClassAndAdd("#dC3", "e1-div-dc3");
+					dontHasClassAndAdd("#dC4", "e1-div-dc4");
+					dontHasClassAndAdd("#d1", "e1-div-1-2-3");
+					dontHasClassAndAdd("#d2", "e1-div-1-2-3");
+					dontHasClassAndAdd("#d3", "e1-div-1-2-3");
+					dontHasClassAndAdd("#d4", "e1-div-4-5");
+					dontHasClassAndAdd("#d5", "e1-div-4-5");
+					dontHasClassAndAdd("#d6", "e1-div-6");
+					dontHasClassAndAdd("#d7", "e1-div-7");
+
+					//ACTUALIZAR LA ALTURA PARA QUE QUEDE EL DIV CUADRADO
+					updateDivSquare("#d1");
+					updateDivSquare("#d2");
+					updateDivSquare("#d3");
+					updateDivSquare("#d4");
+					updateDivSquare("#d5");
+					updateDivSquare("#d6");
+					updateDivSquare("#d7");
+					$("#dC1").height($("#d7").width());
+					$("#dC2").height($("#d1").width());
+					$("#dC3").height($("#d6").width());
+				}
+			});
+
 			/*updateDiv("#dc1", $("#d7").width());
 			updateDiv("#dc2", $("#d1").width());
 			updateDiv("#dc3", $("#d6").width());*/
@@ -465,11 +465,11 @@
 				$("#d5").height($("#d7").width());
 				$("#d6").height($("#d7").width());
 				$("#d7").height($("#d7").width());
-				
-				$("#dC1").css('height','auto');
-				$("#dC2").css('height','auto');
-				$("#dC3").css('height','auto');
-				$("#dC4").css('height','auto');
+
+				$("#dC1").css('height', 'auto');
+				$("#dC2").css('height', 'auto');
+				$("#dC3").css('height', 'auto');
+				$("#dC4").css('height', 'auto');
 				/*updateDivSquare("#d1");
 				updateDivSquare("#d2");
 				updateDivSquare("#d3");
@@ -605,9 +605,9 @@
 		}
 
 		function dontHasClassAndAdd(divToTest, classToAdd) {
-			var hasClass = $(divToTest).hasClass(classToAdd);			
+			var hasClass = $(divToTest).hasClass(classToAdd);
 			if (!hasClass) {
-				console.log("AGREGANDO CLASE "+classToAdd +" AL DIV: "+divToTest);
+				console.log("AGREGANDO CLASE " + classToAdd + " AL DIV: " + divToTest);
 				$(divToTest).addClass(classToAdd);
 			}
 		}

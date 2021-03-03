@@ -28,14 +28,12 @@
 		.e1-div-dc1 {
 			width: 50%;
 			height: auto;
-			max-height: 600px;
 		}
 
 		.e1-div-dc2 {
 			display: flex;
 			width: 100%;
 			height: auto;
-			max-height: 200px;
 			flex-direction: row;
 			justify-content: center;
 		}
@@ -43,7 +41,6 @@
 		.e1-div-dc3 {
 			width: 100%;
 			height: auto;
-			max-height: 400px;
 			display: flex;
 			flex-direction: row;
 			justify-content: center;
@@ -58,8 +55,6 @@
 
 		.e1-div-1-2-3 {
 			width: 33.33%;
-			height: 200px;
-			max-height: 200px;
 			background-position: center;
 			background-size: contain;
 			background-repeat: no-repeat;
@@ -69,8 +64,6 @@
 
 		.e1-div-4-5 {
 			width: 100%;
-			height: 200px;
-			max-height: 200px;
 			background-position: center;
 			background-size: contain;
 			background-repeat: no-repeat;
@@ -80,8 +73,6 @@
 
 		.e1-div-6 {
 			width: 66.66%;
-			height: 400px;
-			max-height: 400px;
 			background-position: center;
 			background-size: contain;
 			background-repeat: no-repeat;
@@ -91,8 +82,6 @@
 
 		.e1-div-7 {
 			width: 50%;
-			height: 600px;
-			max-height: 600px;
 			background-position: center;
 			background-size: contain;
 			background-repeat: no-repeat;
@@ -258,39 +247,42 @@
 		<div id="dC1" style="background-color: blue;">
 			<div id="dC2">
 				<div id="d1"></div>
-				<!-- <div style="width: 1px;height:auto; background-color: white;"></div> -->
 				<div id="d2"></div>
-				<!-- <div style="width: 1px;height:auto; background-color: white;"></div> -->
 				<div id="d3"></div>
 			</div>
-
-			<!-- <div style="width:auto;height:1px; background-color: white;"></div> -->
-
 			<div id="dC3">
 				<div id="dC4">
 					<div id="d4"></div>
-					<!-- <div style="width:auto;height:1px; background-color: white;"></div> -->
 					<div id="d5"></div>
 				</div>
-				<!-- <div style="width:1px; height:auto; background-color: white;"></div> -->
 				<div id="d6"></div>
 			</div>
-
 		</div>
-		<!-- <div style="width:1px;height:auto; background-color: white;"></div> -->
 		<div id="d7" style="background-color: blue;"></div>
 	</div>
 
 	<div id="instafeed-container" style="display: none;"></div>
 	<script src="https://cdn.jsdelivr.net/gh/stevenschobert/instafeed.js@2.0.0rc1/src/instafeed.min.js"></script>
 
-
 	<script>
 		$(document).ready(function () {
 			$(window).resize(function () {
 				var win = $(this); //this = window    
 				if (win.width() <= 785) {
-					//VALIDAR SI TIENE LA CLASE E2 EN TODOS LOS DIVS CON ID Y REMOVERLA
+					//VALIDAR SI TIENE LA CLASE E1 Y E2 EN TODOS LOS DIVS CON ID Y REMOVERLA
+					hasClassAndRemove("#dM", "e1-dm");
+					hasClassAndRemove("#dC1", "e1-div-dc1");
+					hasClassAndRemove("#dC2", "e1-div-dc2");
+					hasClassAndRemove("#dC3", "e1-div-dc3");
+					hasClassAndRemove("#dC4", "e1-div-dc4");
+					hasClassAndRemove("#d1", "e1-div-1-2-3");
+					hasClassAndRemove("#d2", "e1-div-1-2-3");
+					hasClassAndRemove("#d3", "e1-div-1-2-3");
+					hasClassAndRemove("#d4", "e1-div-4-5");
+					hasClassAndRemove("#d5", "e1-div-4-5");
+					hasClassAndRemove("#d6", "e1-div-6");
+					hasClassAndRemove("#d7", "e1-div-7");
+
 					hasClassAndRemove("#dM", "e2-dm");
 					hasClassAndRemove("#dC1", "e2-div-dc1");
 					hasClassAndRemove("#dC2", "e2-div-dc2");
@@ -318,30 +310,19 @@
 					dontHasClassAndAdd("#d6", "e3-div-6");
 					dontHasClassAndAdd("#d7", "e3-div-7");
 
-					//ACTUALIZAR LA ALTURA PARA QUE QUEDE EL DIV CUADRADO
-					/*updateDivSquare("#d1");
-					updateDivSquare("#d2");
-					updateDivSquare("#d3");
-					updateDivSquare("#d4");
-					updateDivSquare("#d5");
-					updateDivSquare("#d6");
-					updateDivSquare("#d7");*/
-					$("#d1").height($("#d7").width());
-					$("#d2").height($("#d7").width());
-					$("#d3").height($("#d7").width());
-					$("#d4").height($("#d7").width());
-					$("#d5").height($("#d7").width());
-					$("#d6").height($("#d7").width());
-					$("#d7").height($("#d7").width());
+					//ACTUALIZAR LA ALTURA PARA QUE QUEDE EL DIV CUADRADO			
+					$("#d1").height($("#dM").width());
+					$("#d2").height($("#dM").width());
+					$("#d3").height($("#dM").width());
+					$("#d4").height($("#dM").width());
+					$("#d5").height($("#dM").width());
+					$("#d6").height($("#dM").width());
+					$("#d7").height($("#dM").width());
 
 					$("#dC1").css('height', 'auto');
 					$("#dC2").css('height', 'auto');
 					$("#dC3").css('height', 'auto');
 					$("#dC4").css('height', 'auto');
-					//updateDivSquare("#dc1");
-					//$("#dC1").height($("#d7").width());
-					//$("#dC2").height($("#d1").width());
-					//$("#dC3").height($("#d6").width());
 				} else if (win.width() <= 900) {
 					//VALIDAR SI TIENE LA CLASE E1 O LA E3 EN LOS DIVS CON ID Y REMOVERLA
 					hasClassAndRemove("#dM", "e1-dm");
@@ -385,18 +366,19 @@
 					dontHasClassAndAdd("#d7", "e2-div-7");
 
 					//ACTUALIZAR LA ALTURA PARA QUE QUEDE EL DIV CUADRADO
-					updateDivSquare("#d1");
-					updateDivSquare("#d2");
-					updateDivSquare("#d3");
-					updateDivSquare("#d4");
-					updateDivSquare("#d5");
-					updateDivSquare("#d6");
-					updateDivSquare("#d7");
-					$("#dC1").height($("#d7").width());
-					$("#dC2").height($("#d1").width());
-					$("#dC3").height($("#d6").width());
+					updateDiv("#dC1", $("#dM").width());
+					updateDiv("#dC2", $("#dM").width() / 3);
+					updateDiv("#dC3", $("#dM").width() * 2 / 3);
+					updateDiv("#dC4", $("#dM").width() * 2 / 3);
+					updateDiv("#d1", $("#dM").width() / 3);
+					updateDiv("#d2", $("#dM").width() / 3);
+					updateDiv("#d3", $("#dM").width() / 3);
+					updateDiv("#d4", $("#dM").width() / 3);
+					updateDiv("#d5", $("#dM").width() / 3);
+					updateDiv("#d6", $("#dM").width() * 2 / 3);
+					updateDiv("#d7", $("#dM").width());
 				} else {
-					//VALIDAR SI TIENE LA CLASE E2 EN LOS DIVS CON ID Y REMOVERLA
+					//VALIDAR SI TIENE LA CLASE E2 O E3 EN LOS DIVS CON ID Y REMOVERLA										
 					hasClassAndRemove("#dM", "e2-dm");
 					hasClassAndRemove("#dC1", "e2-div-dc1");
 					hasClassAndRemove("#dC2", "e2-div-dc2");
@@ -409,6 +391,19 @@
 					hasClassAndRemove("#d5", "e2-div-4-5");
 					hasClassAndRemove("#d6", "e2-div-6");
 					hasClassAndRemove("#d7", "e2-div-7");
+
+					hasClassAndRemove("#dM", "e3-dm");
+					hasClassAndRemove("#dC1", "e3-div-dc1");
+					hasClassAndRemove("#dC2", "e3-div-dc2");
+					hasClassAndRemove("#dC3", "e3-div-dc3");
+					hasClassAndRemove("#dC4", "e3-div-dc4");
+					hasClassAndRemove("#d1", "e3-div-1-2-3");
+					hasClassAndRemove("#d2", "e3-div-1-2-3");
+					hasClassAndRemove("#d3", "e3-div-1-2-3");
+					hasClassAndRemove("#d4", "e3-div-4-5");
+					hasClassAndRemove("#d5", "e3-div-4-5");
+					hasClassAndRemove("#d6", "e3-div-6");
+					hasClassAndRemove("#d7", "e3-div-7");
 
 					//VALIDAR SI NO TIENE LA CLASE E1 EN TODOS LOS DIVS CON ID Y AGREGARLA
 					dontHasClassAndAdd("#dM", "e1-dm");
@@ -425,22 +420,20 @@
 					dontHasClassAndAdd("#d7", "e1-div-7");
 
 					//ACTUALIZAR LA ALTURA PARA QUE QUEDE EL DIV CUADRADO
-					updateDivSquare("#d1");
-					updateDivSquare("#d2");
-					updateDivSquare("#d3");
-					updateDivSquare("#d4");
-					updateDivSquare("#d5");
-					updateDivSquare("#d6");
-					updateDivSquare("#d7");
-					$("#dC1").height($("#d7").width());
-					$("#dC2").height($("#d1").width());
-					$("#dC3").height($("#d6").width());
+					updateDiv("#dC1", $("#dM").width() / 2);
+					updateDiv("#dC2", $("#dM").width() / 6);
+					updateDiv("#dC3", $("#dM").width() * 2 / 6);
+					updateDiv("#dC4", $("#dM").width() * 2 / 6);
+					updateDiv("#d1", $("#dM").width() / 6);
+					updateDiv("#d2", $("#dM").width() / 6);
+					updateDiv("#d3", $("#dM").width() / 6);
+					updateDiv("#d4", $("#dM").width() / 6);
+					updateDiv("#d5", $("#dM").width() / 6);
+					updateDiv("#d6", $("#dM").width() * 2 / 6);
+					updateDiv("#d7", $("#dM").width() / 2);
 				}
 			});
 
-			/*updateDiv("#dc1", $("#d7").width());
-			updateDiv("#dc2", $("#d1").width());
-			updateDiv("#dc3", $("#d6").width());*/
 			var win = $(this); //this = window    
 			if (win.width() <= 785) {
 				//VALIDAR SI NO TIENE LA CLASE E3 EN TODOS LOS DIVS CON ID Y AGREGARLA
@@ -458,29 +451,18 @@
 				dontHasClassAndAdd("#d7", "e3-div-7");
 
 				//ACTUALIZAR LA ALTURA PARA QUE QUEDE EL DIV CUADRADO
-				$("#d1").height($("#d7").width());
-				$("#d2").height($("#d7").width());
-				$("#d3").height($("#d7").width());
-				$("#d4").height($("#d7").width());
-				$("#d5").height($("#d7").width());
-				$("#d6").height($("#d7").width());
-				$("#d7").height($("#d7").width());
+				$("#d1").height($("#dM").width());
+				$("#d2").height($("#dM").width());
+				$("#d3").height($("#dM").width());
+				$("#d4").height($("#dM").width());
+				$("#d5").height($("#dM").width());
+				$("#d6").height($("#dM").width());
+				$("#d7").height($("#dM").width());
 
 				$("#dC1").css('height', 'auto');
 				$("#dC2").css('height', 'auto');
 				$("#dC3").css('height', 'auto');
 				$("#dC4").css('height', 'auto');
-				/*updateDivSquare("#d1");
-				updateDivSquare("#d2");
-				updateDivSquare("#d3");
-				updateDivSquare("#d4");
-				updateDivSquare("#d5");
-				updateDivSquare("#d6");
-				updateDivSquare("#d7");*/
-				//updateDivSquare("#dc1");
-				//$("#dC1").height($("#d7").width());
-				//$("#dC2").height($("#d1").width());
-				//$("#dC3").height($("#d6").width());
 			} else if (win.width() <= 900) {
 				//VALIDAR SI NO TIENE LA CLASE E2 EN TODOS LOS DIVS CON ID Y AGREGARLA
 				dontHasClassAndAdd("#dM", "e2-dm");
@@ -497,17 +479,17 @@
 				dontHasClassAndAdd("#d7", "e2-div-7");
 
 				//ACTUALIZAR LA ALTURA PARA QUE QUEDE EL DIV CUADRADO
-				updateDivSquare("#d1");
-				updateDivSquare("#d2");
-				updateDivSquare("#d3");
-				updateDivSquare("#d4");
-				updateDivSquare("#d5");
-				updateDivSquare("#d6");
-				updateDivSquare("#d7");
-				//updateDivSquare("#dc1");
-				$("#dC1").height($("#d7").width());
-				$("#dC2").height($("#d1").width());
-				$("#dC3").height($("#d6").width());
+				updateDiv("#dC1", $("#dM").width());
+				updateDiv("#dC2", $("#dM").width() / 3);
+				updateDiv("#dC3", $("#dM").width() * 2 / 3);
+				updateDiv("#dC4", $("#dM").width() * 2 / 3);
+				updateDiv("#d1", $("#dM").width() / 3);
+				updateDiv("#d2", $("#dM").width() / 3);
+				updateDiv("#d3", $("#dM").width() / 3);
+				updateDiv("#d4", $("#dM").width() / 3);
+				updateDiv("#d5", $("#dM").width() / 3);
+				updateDiv("#d6", $("#dM").width() * 2 / 3);
+				updateDiv("#d7", $("#dM").width());
 			} else {
 				//VALIDAR SI NO TIENE LA CLASE E1 EN TODOS LOS DIVS CON ID Y AGREGARLA
 				dontHasClassAndAdd("#dM", "e1-dm");
@@ -524,16 +506,17 @@
 				dontHasClassAndAdd("#d7", "e1-div-7");
 
 				//ACTUALIZAR LA ALTURA PARA QUE QUEDE EL DIV CUADRADO
-				updateDivSquare("#d1");
-				updateDivSquare("#d2");
-				updateDivSquare("#d3");
-				updateDivSquare("#d4");
-				updateDivSquare("#d5");
-				updateDivSquare("#d6");
-				updateDivSquare("#d7");
-				$("#dC1").height($("#d7").width());
-				$("#dC2").height($("#d1").width());
-				$("#dC3").height($("#d6").width());
+				updateDiv("#dC1", $("#dM").width() / 2);
+				updateDiv("#dC2", $("#dM").width() / 6);
+				updateDiv("#dC3", $("#dM").width() * 2 / 6);
+				updateDiv("#dC4", $("#dM").width() * 2 / 6);
+				updateDiv("#d1", $("#dM").width() / 6);
+				updateDiv("#d2", $("#dM").width() / 6);
+				updateDiv("#d3", $("#dM").width() / 6);
+				updateDiv("#d4", $("#dM").width() / 6);
+				updateDiv("#d5", $("#dM").width() / 6);
+				updateDiv("#d6", $("#dM").width() * 2 / 6);
+				updateDiv("#d7", $("#dM").width() / 2);
 			}
 
 			var imgCounter = 0;
@@ -570,27 +553,33 @@
 					return item;
 				},
 				error: function (errorData) {
-					if (localStorage.getItem('img_d1') !== null &&
-						localStorage.getItem('img_d2') !== null &&
-						localStorage.getItem('img_d3') !== null &&
-						localStorage.getItem('img_d4') !== null &&
-						localStorage.getItem('img_d5') !== null &&
-						localStorage.getItem('img_d6') !== null &&
-						localStorage.getItem('img_d7') !== null) {
-						var img_d7 = localStorage.getItem('img_d7');
-						var img_d6 = localStorage.getItem('img_d6');
-						var img_d5 = localStorage.getItem('img_d5');
-						var img_d4 = localStorage.getItem('img_d4');
-						var img_d3 = localStorage.getItem('img_d3');
-						var img_d2 = localStorage.getItem('img_d2');
+					if (localStorage.getItem('img_d1') !== null) {
 						var img_d1 = localStorage.getItem('img_d1');
-						document.getElementById("d7").style.backgroundImage = "url('" + img_d7 + "')";
-						document.getElementById("d6").style.backgroundImage = "url('" + img_d6 + "')";
-						document.getElementById("d5").style.backgroundImage = "url('" + img_d5 + "')";
-						document.getElementById("d4").style.backgroundImage = "url('" + img_d4 + "')";
-						document.getElementById("d3").style.backgroundImage = "url('" + img_d3 + "')";
-						document.getElementById("d2").style.backgroundImage = "url('" + img_d2 + "')";
 						document.getElementById("d1").style.backgroundImage = "url('" + img_d1 + "')";
+					}
+					if (localStorage.getItem('img_d2') !== null) {
+						var img_d2 = localStorage.getItem('img_d2');
+						document.getElementById("d2").style.backgroundImage = "url('" + img_d2 + "')";
+					}
+					if (localStorage.getItem('img_d3') !== null) {
+						var img_d3 = localStorage.getItem('img_d3');
+						document.getElementById("d3").style.backgroundImage = "url('" + img_d3 + "')";
+					}
+					if (localStorage.getItem('img_d4') !== null) {
+						var img_d4 = localStorage.getItem('img_d4');
+						document.getElementById("d4").style.backgroundImage = "url('" + img_d4 + "')";
+					}
+					if (localStorage.getItem('img_d5') !== null) {
+						var img_d5 = localStorage.getItem('img_d5');
+						document.getElementById("d5").style.backgroundImage = "url('" + img_d5 + "')";
+					}
+					if (localStorage.getItem('img_d6') !== null) {
+						var img_d6 = localStorage.getItem('img_d6');
+						document.getElementById("d6").style.backgroundImage = "url('" + img_d6 + "')";
+					}
+					if (localStorage.getItem('img_d7') !== null) {
+						var img_d7 = localStorage.getItem('img_d7');
+						document.getElementById("d7").style.backgroundImage = "url('" + img_d7 + "')";
 					}
 				}
 			});
@@ -613,25 +602,13 @@
 		}
 
 		function updateDiv(divToUpdate, newHeight) {
-			//console.log(divToUpdate + "___" + newHeight);
 			$(divToUpdate).height(newHeight);
 		}
 
 		function updateDivSquare(divToUpdate) {
 			$(divToUpdate).height($(divToUpdate).width());
-		}
-
-		function updateAllDivs(newHeight) {
-			$("#d1").height(newHeight);
-			$("#d2").height(newHeight);
-			$("#d3").height(newHeight);
-			$("#d4").height(newHeight);
-			$("#d5").height(newHeight);
-			$("#d6").height(newHeight);
-			$("#d7").height(newHeight);
-		}
+		}		
 	</script>
-
 </body>
 
 </html>
